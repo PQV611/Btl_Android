@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class LoginMainActivity extends AppCompatActivity {
     EditText userName, password;
     RadioGroup rdGroup;
+    RadioButton rdGv, rdSv;
     Button btnLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +24,17 @@ public class LoginMainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         rdGroup = findViewById(R.id.rdGroup);
         btnLogin = findViewById(R.id.btnLogin);
+        rdGv = findViewById(R.id.rdGv);
+        rdSv = findViewById(R.id.rdSv);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedId = rdGroup.getCheckedRadioButtonId();
-                if(selectedId == R.id.rdGv){
+                //int selectedId = rdGroup.getCheckedRadioButtonId();
+                if(rdGv.isChecked()){
                     Intent intent = new  Intent(LoginMainActivity.this, ManHinhGiaoVien.class);
                     startActivity(intent);
-                } else if (selectedId == R.id.rdSv){
+                } else if (rdSv.isChecked()){
                     //Chua code
                     //Chua code
                     //Chua code
