@@ -27,20 +27,6 @@ public class LoginMainActivity extends AppCompatActivity {
         rdGv = (RadioButton) findViewById(R.id.rdGv);
         rdSv = (RadioButton) findViewById(R.id.rdSv);
 
-        rdGv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rdSv.setChecked(false); // Đặt radio button sinh viên về trạng thái không chọn
-            }
-        });
-
-        rdSv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rdGv.setChecked(false); // Đặt radio button sinh viên về trạng thái không chọn
-            }
-        });
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +35,6 @@ public class LoginMainActivity extends AppCompatActivity {
                     Intent intent = new  Intent(LoginMainActivity.this, ManHinhGiaoVien.class);
                     startActivity(intent);
                 } else if (rdSv.isChecked()){
-                    //Chua code
-                    //Chua code
-                    //Chua code
-                    //Chua code
-                    //Chua code
                     //Chua code
                 }
             }
