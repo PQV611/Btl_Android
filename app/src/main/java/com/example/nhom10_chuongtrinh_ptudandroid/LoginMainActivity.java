@@ -24,8 +24,22 @@ public class LoginMainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         rdGroup = findViewById(R.id.rdGroup);
         btnLogin = findViewById(R.id.btnLogin);
-        rdGv = findViewById(R.id.rdGv);
-        rdSv = findViewById(R.id.rdSv);
+        rdGv = (RadioButton) findViewById(R.id.rdGv);
+        rdSv = (RadioButton) findViewById(R.id.rdSv);
+
+        rdGv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdSv.setChecked(false); // Đặt radio button sinh viên về trạng thái không chọn
+            }
+        });
+
+        rdSv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdGv.setChecked(false); // Đặt radio button sinh viên về trạng thái không chọn
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
