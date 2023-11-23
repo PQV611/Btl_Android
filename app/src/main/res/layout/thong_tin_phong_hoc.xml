@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:stretchColumns="*"
+    android:layout_marginTop="215dp">
+
+    <TableRow>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Phòng"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Lớp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Trạng thái"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <!-- Dòng 2 -->
+    <TableRow>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="2" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Thiết kế đồ họa" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="19/20" />
+    </TableRow>
+
+    <!-- Dòng 3 -->
+    <TableRow>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="3" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Thiết kế web" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Đã đầy" />
+    </TableRow>
+
+    <!-- Thêm các dòng khác nếu cần -->
+    <TableRow>
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="4" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Android" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Đã đầy" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btnDangKyLop"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Đăng ký lớp" />
+
+        <Button
+            android:id="@+id/btnPhanCong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phân công" />
+
+        <Button
+            android:id="@+id/btnThongKe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thống kê" />
+    </TableRow>
+</TableLayout>
