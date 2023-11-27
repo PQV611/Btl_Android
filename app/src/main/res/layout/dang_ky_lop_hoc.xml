@@ -49,21 +49,26 @@
             android:textSize="20dp"
             android:textStyle="bold"
             />
-
-        <RadioButton
-            android:id="@+id/rdSang"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/rdG"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:text="Sáng" />
+            android:orientation="horizontal" >
+            <RadioButton
+                android:id="@+id/rdSang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text="Sáng" />
 
-        <RadioButton
-            android:id="@+id/rdChieu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Chiều" />
-
+            <RadioButton
+                android:id="@+id/rdChieu"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Chiều" />
+        </RadioGroup>
     </TableRow>
 
     <TableRow

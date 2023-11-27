@@ -37,6 +37,9 @@ public class PhanCongAdapter extends RecyclerView.Adapter<PhanCongAdapter.ViewHo
             holder.tv_msvphancong.setText(phanCong.getMasv());
             holder.tv_tenphancong.setText(phanCong.getTen());
             holder.tv_notephancong.setText(phanCong.getNote());
+            holder.tv_caphancong.setText(phanCong.getCa());
+            holder.tv_ngayphancong.setText(phanCong.getNgay());
+            holder.tv_lopphancong.setText(phanCong.getTenLopDK());
         } else {
             return;
         }
@@ -48,12 +51,15 @@ public class PhanCongAdapter extends RecyclerView.Adapter<PhanCongAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_msvphancong, tv_tenphancong, tv_notephancong;
+        TextView tv_msvphancong, tv_tenphancong, tv_notephancong, tv_caphancong, tv_ngayphancong, tv_lopphancong;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_msvphancong = itemView.findViewById(R.id.tv_msvphancong);
             tv_tenphancong = itemView.findViewById(R.id.tv_tenphancong);
             tv_notephancong = itemView.findViewById(R.id.tv_notephancong);
+            tv_caphancong = itemView.findViewById(R.id.tv_caphancong);
+            tv_ngayphancong = itemView.findViewById(R.id.tv_ngayphancong);
+            tv_lopphancong = itemView.findViewById(R.id.tv_lopphancong);
         }
     }
 }

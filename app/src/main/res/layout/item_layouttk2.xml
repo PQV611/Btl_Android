@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"> <!-- Set a fixed height for the TableRow -->
 
         <TextView
-            android:id="@+id/tv_msvphancong"
+            android:id="@+id/tv_ngaytk2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -17,7 +17,7 @@
             android:background="@drawable/cell_border"/>
 
         <TextView
-            android:id="@+id/tv_tenphancong"
+            android:id="@+id/tv_thietbihuhaitk2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -25,31 +25,7 @@
             android:textAlignment="center"
             android:background="@drawable/cell_border"/>
         <TextView
-            android:id="@+id/tv_notephancong"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:background="@drawable/cell_border"/>
-        <TextView
-            android:id="@+id/tv_caphancong"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:background="@drawable/cell_border"/>
-        <TextView
-            android:id="@+id/tv_ngayphancong"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:background="@drawable/cell_border"/>
-        <TextView
-            android:id="@+id/tv_lopphancong"
+            android:id="@+id/tv_thietbithieutk2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
