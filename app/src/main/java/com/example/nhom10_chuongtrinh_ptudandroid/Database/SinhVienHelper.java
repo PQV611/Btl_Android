@@ -33,7 +33,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT, %s TEXT)",
+        String createStatement = String.format("CREATE TABLE %s (%s INTEGER AUTOINCREMENT, %s TEXT PRIMARY KEY, %s TEXT, %s TEXT)",
                 TABLE_NAME, COL_STT, COL_MSV, COL_TEN, COL_LOP);
         db.execSQL(createStatement);
     }
