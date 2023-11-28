@@ -41,7 +41,6 @@ public class LoginMainActivity extends AppCompatActivity {
                     if(gvh.check(txtuser, txtpass)){
                         Intent intent = new  Intent(LoginMainActivity.this, ManHinhGiaoVien.class);
                         intent.putExtra("username", txtuser);
-                        intent.putExtra("tenlop", gvh.getColTenLop(txtuser));
                         startActivity(intent);
                     } else {
                         //Thong bao
