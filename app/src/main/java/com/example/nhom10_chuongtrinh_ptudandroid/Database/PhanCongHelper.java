@@ -32,8 +32,9 @@ public class PhanCongHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try {
             Log.e("Database", "onCreate called");
-            String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT)",
-                    TABLE_NAME, COL_MSV, COL_TEN, COL_NOTE, COL_TEN_LOP_DK, COL_CA, COL_NGAY);
+            String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY(%s, %s, %s, %s))",
+                    TABLE_NAME, COL_MSV, COL_TEN, COL_NOTE, COL_TEN_LOP_DK, COL_CA, COL_NGAY,
+                    COL_MSV, COL_TEN_LOP_DK, COL_CA, COL_NGAY);
             db.execSQL(createStatement);
         } catch (Exception e) {
             Log.e("PhanCongHelper", "Error creating database", e);
@@ -58,16 +59,21 @@ public class PhanCongHelper extends SQLiteOpenHelper {
     }
     public void addRecord(List<PhanCong> list) {
         SQLiteDatabase db = getWritableDatabase();
-        for(PhanCong c : list) {
-            ContentValues values = new ContentValues();
-
-            values.put(COL_MSV, c.getMasv());
-            values.put(COL_TEN, c.getTen());
-            values.put(COL_NOTE, c.getNote());
-            values.put(COL_TEN_LOP_DK, c.getTenLopDK());
-            values.put(COL_CA, c.getCa());
-            values.put(COL_NGAY, c.getNgay());
-            db.insert(TABLE_NAME, null, values);
+        db.beginTransaction();
+        try {
+            for (PhanCong c : list) {
+                ContentValues values = new ContentValues();
+                values.put(COL_MSV, c.getMasv());
+                values.put(COL_TEN, c.getTen());
+                values.put(COL_NOTE, c.getNote());
+                values.put(COL_TEN_LOP_DK, c.getTenLopDK());
+                values.put(COL_CA, c.getCa());
+                values.put(COL_NGAY, c.getNgay());
+                db.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
     }
 

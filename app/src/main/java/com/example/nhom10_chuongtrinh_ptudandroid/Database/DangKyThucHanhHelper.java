@@ -29,8 +29,10 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT)",
-                TABLE_NAME, COL_TEN_LOP_DK, COL_CA, COL_NGAY, COL_TEN_PHONG);
+        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s))",
+                TABLE_NAME, COL_TEN_LOP_DK, COL_CA, COL_NGAY, COL_TEN_PHONG,
+                COL_CA, COL_NGAY);
+
         db.execSQL(createStatement);
     }
 
@@ -100,9 +102,30 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         }
         return result;
     }
+    public String getColPhong(String ca, String ngay) {
+        SQLiteDatabase db = getReadableDatabase();
+        String result = null;
+        Cursor cursor = null;
+        try {
+            String statement = "SELECT " + COL_TEN_PHONG + " FROM " + TABLE_NAME +
+                    " WHERE " +
+                    COL_NGAY + " = ? AND " +
+                    COL_CA + " = ?";
+            cursor = db.rawQuery(statement, new String[]{ngay, ca});
 
+            while (cursor.moveToNext()) {
+                result = cursor.getString(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        return result;
+    }
 
-    private String getSingleColumnValue(String tenlop, int songay, String columnName) {
+    private String getSingleColumnValue(String tenlop, String columnName) {
         SQLiteDatabase db = getReadableDatabase();
         String result = null;
         Cursor cursor = null;
@@ -110,9 +133,9 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         try {
             String subquery = "SELECT * FROM " + TABLE_NAME + " WHERE " + COL_TEN_LOP_DK + " = ?";
             String statement = "SELECT " + columnName + " FROM (" + subquery +
-                    ") ORDER BY " + COL_NGAY + " ASC LIMIT 1 OFFSET ?";
+                    ") ORDER BY DATE(" + COL_NGAY + ") DESC LIMIT 1";
 
-            cursor = db.rawQuery(statement, new String[]{tenlop, String.valueOf(songay - 1)});
+            cursor = db.rawQuery(statement, new String[]{tenlop});
             if (cursor.moveToFirst()) {
                 result = cursor.getString(0);
             }
@@ -125,12 +148,12 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public String getColCa(String tenlop, int songay) {
-        return getSingleColumnValue(tenlop, songay, COL_CA);
+    public String getColCa(String tenlop) {
+        return getSingleColumnValue(tenlop, COL_CA);
     }
 
-    public String getColNgay(String tenlop, int songay) {
-        return getSingleColumnValue(tenlop, songay, COL_NGAY);
+    public String getColNgay(String tenlop) {
+        return getSingleColumnValue(tenlop, COL_NGAY);
     }
 
 

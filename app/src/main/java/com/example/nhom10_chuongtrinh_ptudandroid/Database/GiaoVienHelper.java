@@ -14,7 +14,6 @@ import java.util.List;
 public class GiaoVienHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "BTL.db";
     private static final String TABLE_NAME = "giaovien";
-    private static final String COL_TEN_LOP = "tenLop";
     private static final String COL_USERNAME = "username";
     private static final String COL_PASSWORD = "password";
     private static final int DATABASE_VERSION = 6;
@@ -25,8 +24,8 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s TEXT PRIMARY KEY, %s TEXT, %s TEXT)",
-                TABLE_NAME, COL_USERNAME, COL_PASSWORD, COL_TEN_LOP);
+        String createStatement = String.format("CREATE TABLE %s (%s TEXT PRIMARY KEY, %s TEXT)",
+                TABLE_NAME, COL_USERNAME, COL_PASSWORD);
         db.execSQL(createStatement);
     }
 
@@ -55,21 +54,6 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String selectTenLopWhere(String username) {
-        SQLiteDatabase db = getReadableDatabase();
-        String statement = "SELECT " + COL_TEN_LOP + " FROM " + TABLE_NAME + " WHERE " + COL_USERNAME + " = ?";
-
-        Cursor cursor = db.rawQuery(statement, new String[]{username});
-
-        String tenLop = null;
-        if (cursor != null && cursor.moveToFirst()) {
-            tenLop = cursor.getString(0);
-            cursor.close();
-        }
-        db.close();
-
-        return tenLop;
-    }
     public boolean check(String username, String password) {
         SQLiteDatabase db = getReadableDatabase();
         String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME +
@@ -88,21 +72,6 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
-    }
-
-    public String getColTenLop(String username){
-        SQLiteDatabase db = getReadableDatabase();
-        String statement = "SELECT " + COL_TEN_LOP + " FROM " + TABLE_NAME +
-                " WHERE " + COL_USERNAME + " = ?";
-        Cursor cursor = db.rawQuery(statement, new String[]{username});
-
-        String result = null;
-        if (cursor != null && cursor.moveToFirst()) {
-            result = cursor.getString(0);
-            cursor.close();
-        }
-        db.close();
-        return result;
     }
 
     public List<GiaoVien> getAll() {

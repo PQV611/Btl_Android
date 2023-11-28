@@ -39,6 +39,7 @@ public class PhanCongTrucNhat extends AppCompatActivity {
     DangKyThucHanhHelper dkh;
     String username;
     ArrayList<String> tenloplist = new ArrayList<>();
+    String tenphong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +70,9 @@ public class PhanCongTrucNhat extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             username = intent.getStringExtra("username");
+            tenphong = intent.getStringExtra("tenPhong");
         }
         tenloplist = dkh.getColLop();
-
-        if(phanCongList.isEmpty())
-            phanCongList = pch.getAll();
     }
 
     private void setRecycleView() {
@@ -87,12 +86,10 @@ public class PhanCongTrucNhat extends AppCompatActivity {
         Hashtable<String, Integer> songay = dkh.soNgayThucHanh();
         for (String tenlop : tenloplist) {
             if (!songay.isEmpty()) {
-                List<SinhVien> sinhVienList = svh.autoSelect((songay.get(tenlop) * 4) - 3, songay.get(tenlop) * 4, tenlop);
-                String ca = dkh.getColCa(tenlop, songay.get(tenlop));
-                String ngay = dkh.getColNgay(tenlop, songay.get(tenlop));
-
                 List<PhanCong> newPhanCongList = new ArrayList<>();
-
+                List<SinhVien> sinhVienList = svh.autoSelect((songay.get(tenlop) * 4) - 3, songay.get(tenlop) * 4, tenlop);
+                String ca = dkh.getColCa(tenlop);
+                String ngay = dkh.getColNgay(tenlop);
                 for (SinhVien sinhVien : sinhVienList) {
                     String ten = sinhVien.getTen();
                     String masv = sinhVien.getMsv();
@@ -103,7 +100,10 @@ public class PhanCongTrucNhat extends AppCompatActivity {
                 Toast.makeText(this, "Không có lịch thực hành", Toast.LENGTH_SHORT).show();
             }
         }
-        phanCongList = pch.getAll();
+        for (PhanCong x : pch.getAll()){
+            if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay())))
+                phanCongList.add(x);
+        }
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }

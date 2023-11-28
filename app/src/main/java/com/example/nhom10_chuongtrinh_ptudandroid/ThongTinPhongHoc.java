@@ -33,9 +33,11 @@ public class ThongTinPhongHoc extends AppCompatActivity {
                 startActivity(intent);
             } else if (v.getId() == R.id.btnPhanCong) {
                 Intent intent = new Intent(ThongTinPhongHoc.this, PhanCongTrucNhat.class);
+                intent.putExtra("tenPhong", tenPhong);
                 startActivity(intent);
             } else if (v.getId() == R.id.btnThongKe){
                 Intent intent = new Intent(ThongTinPhongHoc.this, BaoCaoThongKe.class);
+                intent.putExtra("tenPhong", tenPhong);
                 startActivity(intent);
             }
         }
