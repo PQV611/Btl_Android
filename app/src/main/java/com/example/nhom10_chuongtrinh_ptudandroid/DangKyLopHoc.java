@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.nhom10_chuongtrinh_ptudandroid.Database.DangKyThucHanhHelper;
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.DangKyThucHanh;
+import com.example.nhom10_chuongtrinh_ptudandroid.PhanCongTrucNhat;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -33,8 +34,6 @@ public class DangKyLopHoc extends AppCompatActivity {
     private DangKyThucHanhHelper dkh;
     private String tenphong;
     private List<DangKyThucHanh> dangKyThucHanhList = new ArrayList<>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,37 +51,45 @@ public class DangKyLopHoc extends AppCompatActivity {
             public void onClick(View v) {
                 if (isValidInput()) {
                     String tenlop = editTenLop.getText().toString();
-                    String ca = getSelectedRadioText();
-                    if(ca.equals("Chiều")){
-                        Log.d("abc", "====================");
-                    } else {
-                        Log.d("abc","xxxxxxxxxxxxxxxxxxxxxx");
-                    }
+                    int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+                    RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
+                    String ca = selectedRadioButton.getText().toString();
                     String ngay = editTime.getText().toString();
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                    Date date = null, date1 = null;
                     try {
-                        if (dkh.getColNgay(tenlop) != null) {
-                            date = dateFormat.parse(ngay);
-                            date1 = dateFormat.parse(dkh.getColNgay(tenlop));
-                            if ((date.compareTo(date1) > 0) || (date.compareTo(date1) == 0 && dkh.getColCa(tenlop).equals("Sáng") && ca.equals("Chiều"))) {
+                        if (dkh.getColNgayWhere(tenlop) == null){
+                            if (dkh.check(ca, ngay)) {
+                                Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                            } else {
                                 dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
                                 dkh.addRecord(dangKyThucHanhList);
                                 Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
-                            } else {
+                                finish();
+                            }
+                        } else if (dkh.getColNgayWhere(tenlop) != null) {
+                            if (dkh.check(ca, ngay) || compareDates(ngay, dkh.getColNgayWhere(tenlop)) < 0 || (dkh.getColCaWhere(tenlop).equals("Chiều") && compareDates(ngay, dkh.getColNgayWhere(tenlop)) == 0)) {
                                 Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                            } else {
+                                dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
+                                dkh.addRecord(dangKyThucHanhList);
+                                Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         } else {
-                            dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
-                            dkh.addRecord(dangKyThucHanhList);
-                            Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
                         }
-                    } catch (ParseException e) {
+                    } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 }
             }
         });
+    }
+
+    private int compareDates(String date1, String date2) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        Date d1 = dateFormat.parse(date1);
+        Date d2 = dateFormat.parse(date2);
+        return d1.compareTo(d2);
     }
 
     private void getFormWidget() {
@@ -104,7 +111,7 @@ public class DangKyLopHoc extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(year, month, dayOfMonth);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                 editTime.setText(simpleDateFormat.format(calendar.getTime()));
             }
         }, nam, thang, ngay);

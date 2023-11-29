@@ -58,10 +58,12 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
             values.put(COL_CA, c.getCa());
             values.put(COL_NGAY, c.getNgay());
             values.put(COL_TEN_PHONG, c.getTenPhong());
-            db.insert(TABLE_NAME, null, values);
+
+            db.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
         }
         db.close();
     }
+
 
     public Hashtable<String, Integer> soNgayThucHanh() {
         SQLiteDatabase db = getReadableDatabase();
@@ -124,16 +126,38 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         }
         return result;
     }
-
-    private String getSingleColumnValue(String tenlop, String columnName) {
+    private String getSingleColumnValue(String columnName) {
         SQLiteDatabase db = getReadableDatabase();
         String result = null;
         Cursor cursor = null;
 
         try {
-            String subquery = "SELECT * FROM " + TABLE_NAME + " WHERE " + COL_TEN_LOP_DK + " = ?";
-            String statement = "SELECT " + columnName + " FROM (" + subquery +
-                    ") ORDER BY DATE(" + COL_NGAY + ") DESC LIMIT 1";
+            String statement = "SELECT " + columnName +
+                    " FROM " + TABLE_NAME +
+                    " ORDER BY DATE(" + COL_NGAY + ") DESC LIMIT 1";
+
+            cursor = db.rawQuery(statement, new String[]{});
+            if (cursor.moveToFirst()) {
+                result = cursor.getString(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        return result;
+    }
+    private String getSingleColumnValueWhere(String tenlop, String columnName) {
+        SQLiteDatabase db = getReadableDatabase();
+        String result = null;
+        Cursor cursor = null;
+
+        try {
+            String statement = "SELECT " + columnName +
+                    " FROM " + TABLE_NAME +
+                    " WHERE " + COL_TEN_LOP_DK + " = ?" +
+                    " ORDER BY DATE(" + COL_NGAY + ") DESC LIMIT 1";
 
             cursor = db.rawQuery(statement, new String[]{tenlop});
             if (cursor.moveToFirst()) {
@@ -147,15 +171,37 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         }
         return result;
     }
+    public boolean check(String ca, String ngay){
+        SQLiteDatabase db = getReadableDatabase();
+        int result = 0;
+        Cursor cursor = null;
 
-    public String getColCa(String tenlop) {
-        return getSingleColumnValue(tenlop, COL_CA);
+        try {
+            String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME + " WHERE " + COL_CA + " = ? AND " + COL_NGAY + " = ?";
+
+            cursor = db.rawQuery(statement, new String[]{ca, ngay});
+            if (cursor.moveToFirst()) {
+                result = cursor.getInt(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        if (result == 0)
+            return false;
+        else
+            return true;
     }
-
-    public String getColNgay(String tenlop) {
-        return getSingleColumnValue(tenlop, COL_NGAY);
+    public String getColCaWhere(String tenlop) {
+        return getSingleColumnValueWhere(tenlop, COL_CA);
     }
-
+    public String getColNgayWhere(String tenlop) { return getSingleColumnValueWhere(tenlop, COL_NGAY); }
+    public String getColCa() {
+        return getSingleColumnValue(COL_CA);
+    }
+    public String getColNgay() { return getSingleColumnValue(COL_NGAY); }
 
     public List<DangKyThucHanh> getAll() {
         SQLiteDatabase db = getReadableDatabase();
