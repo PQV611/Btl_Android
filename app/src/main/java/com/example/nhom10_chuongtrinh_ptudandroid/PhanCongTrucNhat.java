@@ -125,8 +125,10 @@ public class PhanCongTrucNhat extends AppCompatActivity {
         Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         if (!msv.isEmpty() && !ten.isEmpty() && !note.isEmpty() && !ca.isEmpty()) {
-            phanCongList1.add(new PhanCong(msv, ten, note, tenlop, ca, dateFormat.format(currentDate)));
+            PhanCong phanCong = new PhanCong(msv, ten, note, tenlop, ca, dateFormat.format(currentDate));
+            phanCongList1.add(phanCong);
             pch.addRecord(phanCongList1);
+            phanCongList.add(phanCong);
             adapter.notifyDataSetChanged();
         } else {
             Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
