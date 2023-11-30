@@ -61,9 +61,14 @@ public class LoginMainActivity extends AppCompatActivity {
         gvh = new GiaoVienHelper(getApplicationContext());
     }
     public void fakeData() {
-        List<GiaoVien> giaoVienList = new ArrayList<>();
-        giaoVienList.add(new GiaoVien("a",""));
-        giaoVienList.add(new GiaoVien("b",""));
-        gvh.addRecord(giaoVienList);
+        try {
+            List<GiaoVien> giaoVienList = new ArrayList<>();
+            giaoVienList.add(new GiaoVien("a",""));
+            giaoVienList.add(new GiaoVien("b",""));
+            gvh.addRecord(giaoVienList);
+            gvh.importCsvData(gvh.getWritableDatabase(), getApplicationContext());
+        } catch (Exception e){
+            Log.d("announcement", "Đã fake data trước đó");
+        }
     }
 }
