@@ -25,7 +25,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
     private static final String COL_MSV = "masv";
     private static final String COL_LOP = "lop";
     private static final String COL_TEN = "ten";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 1;
 
     public SinhVienHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,7 +33,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s INTEGER AUTOINCREMENT, %s TEXT PRIMARY KEY, %s TEXT, %s TEXT)",
+        String createStatement = String.format("CREATE TABLE %s (%s INTEGER, %s TEXT PRIMARY KEY, %s TEXT, %s TEXT)",
                 TABLE_NAME, COL_STT, COL_MSV, COL_TEN, COL_LOP);
         db.execSQL(createStatement);
     }
@@ -79,7 +79,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
     }
     @SuppressLint("Range")
     public List<SinhVien> autoSelect(int begin, int end, String tenlop) {
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
         List<SinhVien> list = new ArrayList<>();
         String statement = "SELECT * FROM " + TABLE_NAME +
                 " WHERE " + COL_STT + " <= ? AND " + COL_STT + " >= ? AND " + COL_LOP + " = ?";

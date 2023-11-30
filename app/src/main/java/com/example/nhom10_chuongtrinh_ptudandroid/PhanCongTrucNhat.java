@@ -96,6 +96,7 @@ public class PhanCongTrucNhat extends AppCompatActivity {
                 for (SinhVien sinhVien : sinhVienList) {
                     String ten = sinhVien.getTen();
                     String masv = sinhVien.getMsv();
+                    Log.d("abc", ten + masv);
                     newPhanCongList.add(new PhanCong(masv, ten, "Đến ngày trực nhật", tenlop, ca, ngay));
                 }
                 pch.addRecord(newPhanCongList);

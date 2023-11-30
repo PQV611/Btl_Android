@@ -17,7 +17,7 @@ public class PhongHocHelper extends SQLiteOpenHelper {
     private static final String COL_TEN_PHONG = "tenPhong";
     private static final String COL_THIET_BI_HU_HAI = "thietBiHuHai";
     private static final String COL_THIET_BI_THIEU = "thietBiThieu";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 1;
 
     public PhongHocHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

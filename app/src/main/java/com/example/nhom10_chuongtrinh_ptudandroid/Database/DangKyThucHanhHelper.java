@@ -21,7 +21,7 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
     private static final String COL_CA = "ca";
     private static final String COL_NGAY = "ngay";
     private static final String COL_TEN_PHONG = "tenPhong";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 1;
 
     public DangKyThucHanhHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
