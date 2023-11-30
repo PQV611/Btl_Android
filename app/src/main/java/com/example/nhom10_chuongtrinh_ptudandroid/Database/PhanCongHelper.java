@@ -22,7 +22,7 @@ public class PhanCongHelper extends SQLiteOpenHelper {
     private static final String COL_TEN_LOP_DK = "tenLopDK";
     private static final String COL_CA = "ca";
     private static final String COL_NGAY = "ngay";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 1;
 
     public PhanCongHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -43,13 +43,9 @@ public class PhanCongHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        try {
-            String deleteStatement = String.format("DROP TABLE IF EXISTS %s", TABLE_NAME);
-            db.execSQL(deleteStatement);
-            onCreate(db);
-        } catch (Exception e) {
-            Log.e("PhanCongHelper", "Error upgrading database", e);
-        }
+        String deleteStatement = String.format("DROP TABLE IF EXISTS %s", TABLE_NAME);
+        db.execSQL(deleteStatement);
+        onCreate(db);
     }
 
     public void deleteAll() {
