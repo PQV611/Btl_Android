@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_thong_tin_phong_hoc.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\thong_tin_phong_hoc.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_man_hinh_giao_vien.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\man_hinh_giao_vien.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:/raw_sinhvien.csv.flat",
+        "source": "com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:/raw/sinhvien.csv"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_dang_ky_lop_hoc.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\dang_ky_lop_hoc.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_diem_danh_sinh_vien_truc_nhat.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\diem_danh_sinh_vien_truc_nhat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_item_layouttk1.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\item_layouttk1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_bao_cao_thong_ke.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\bao_cao_thong_ke.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\raw_sinhvien.csv.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\raw\\sinhvien.csv"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_login_main_activity.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\login_main_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_diem_danh_sinh_vien_khong_truc_nhat.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\diem_danh_sinh_vien_khong_truc_nhat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_border.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\drawable\\border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_item_layouttk2.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\item_layouttk2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_haui.jpg.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\drawable\\haui.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_phan_cong_truc_nhat.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\phan_cong_truc_nhat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_cell_border.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\drawable\\cell_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_item_layout1.xml.flat",
+        "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\item_layout1.xml"
+    }
+]
