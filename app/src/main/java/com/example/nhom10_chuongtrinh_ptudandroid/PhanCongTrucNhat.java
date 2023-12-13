@@ -90,13 +90,23 @@ public class PhanCongTrucNhat extends AppCompatActivity {
         for (String tenlop : tenloplist) {
             if (!songay.isEmpty()) {
                 List<PhanCong> newPhanCongList = new ArrayList<>();
-                List<SinhVien> sinhVienList = svh.autoSelect((songay.get(tenlop) * 4) - 3, songay.get(tenlop) * 4, tenlop);
+                List<Integer> listAutoSelect = new ArrayList<>();
+
+                for (int i = (songay.get(tenlop) * 4) - 3; i <= (songay.get(tenlop) * 4); i++){
+                    if (i != svh.getAllinClass(tenlop))
+                        listAutoSelect.add(i % svh.getAllinClass(tenlop));
+                    else
+                        listAutoSelect.add(i);
+                }
+                List<SinhVien> sinhVienList = new ArrayList<>();
+                for (int stt : listAutoSelect){
+                    sinhVienList.add(svh.autoSelect(stt, tenlop));
+                }
                 String ca = dkh.getColCaWhere(tenlop);
                 String ngay = dkh.getColNgayWhere(tenlop);
                 for (SinhVien sinhVien : sinhVienList) {
                     String ten = sinhVien.getTen();
                     String masv = sinhVien.getMsv();
-                    Log.d("abc", ten + masv);
                     newPhanCongList.add(new PhanCong(masv, ten, "Đến ngày trực nhật", tenlop, ca, ngay));
                 }
                 pch.addRecord(newPhanCongList);
