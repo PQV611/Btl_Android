@@ -157,7 +157,7 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
             String statement = "SELECT " + columnName +
                     " FROM " + TABLE_NAME +
                     " WHERE " + COL_TEN_LOP_DK + " = ?" +
-                    " ORDER BY DATE(" + COL_NGAY + ") DESC LIMIT 1";
+                    " ORDER BY DATE(" + COL_NGAY + ") DESC, " + COL_CA + " ASC LIMIT 1";
 
             cursor = db.rawQuery(statement, new String[]{tenlop});
             if (cursor.moveToFirst()) {

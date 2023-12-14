@@ -78,28 +78,42 @@ public class SinhVienHelper extends SQLiteOpenHelper {
         return result;
     }
     @SuppressLint("Range")
-    public List<SinhVien> autoSelect(int begin, int end, String tenlop) {
+    public SinhVien autoSelect(int stt, String tenlop) {
         SQLiteDatabase db = getReadableDatabase();
-        List<SinhVien> list = new ArrayList<>();
+        SinhVien sv = null;
         String statement = "SELECT * FROM " + TABLE_NAME +
-                " WHERE " + COL_STT + " <= ? AND " + COL_STT + " >= ? AND " + COL_LOP + " = ?";
-        Cursor cursor = db.rawQuery(statement, new String[]{String.valueOf(end), String.valueOf(begin), tenlop});
+                " WHERE " + COL_STT + " == ? AND " + COL_LOP + " = ?";
+        Cursor cursor = db.rawQuery(statement, new String[]{String.valueOf(stt), tenlop});
 
         if (cursor != null && cursor.moveToFirst()) {
-            do {
-                list.add(new SinhVien(
-                        cursor.getString(cursor.getColumnIndex(COL_MSV)),
-                        cursor.getString(cursor.getColumnIndex(COL_TEN)),
-                        cursor.getString(cursor.getColumnIndex(COL_LOP)),
-                        cursor.getInt(cursor.getColumnIndex(COL_STT))
-                ));
-            } while (cursor.moveToNext());
+            sv = new SinhVien(
+                    cursor.getString(cursor.getColumnIndex(COL_MSV)),
+                    cursor.getString(cursor.getColumnIndex(COL_TEN)),
+                    cursor.getString(cursor.getColumnIndex(COL_LOP)),
+                    cursor.getInt(cursor.getColumnIndex(COL_STT)));
         }
         if (cursor != null) {
             cursor.close();
         }
         db.close();
-        return list;
+        return sv;
+    }
+    public int getAllinClass(String tenlop) {
+        SQLiteDatabase db = getReadableDatabase();
+        int result = 0;
+        String statement = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE " + COL_LOP + " = ?";
+        Cursor cursor = db.rawQuery(statement, new String[]{tenlop});
+        try {
+            if (cursor.moveToFirst()) {
+                result = cursor.getInt(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        return result;
     }
     public List<SinhVien> getAll() {
         SQLiteDatabase db = getReadableDatabase();

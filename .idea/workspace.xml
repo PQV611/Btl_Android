@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9582c933-c7f3-47d6-aa87-1fa57dd65973" name="Changes" comment="Phuong Updated" />
+    <list default="true" id="9582c933-c7f3-47d6-aa87-1fa57dd65973" name="Changes" comment="Phuong Updated">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/SinhVienHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/SinhVienHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +100,7 @@
     "android-custom-viewC:/Users/Phuong/AppData/Local/Android/Sdk/sources/android-34/android/widget/RadioButton.java_SELECTED": "RadioButton",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "E:/test/Btl_Android",
+    "last_opened_file_path": "C:/Users/Phuong/Desktop",
     "project.structure.last.edited": "SDK Location",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
