@@ -57,7 +57,7 @@ public class DangKyLopHoc extends AppCompatActivity {
                     String ngay = editTime.getText().toString();
                     try {
                         if (dkh.getColNgayWhere(tenlop) == null){
-                            if (dkh.check(ca, ngay)) {
+                            if (dkh.check(ca, ngay, tenphong)) {
                                 Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
                             } else {
                                 dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
@@ -66,7 +66,7 @@ public class DangKyLopHoc extends AppCompatActivity {
                                 finish();
                             }
                         } else if (dkh.getColNgayWhere(tenlop) != null) {
-                            if (dkh.check(ca, ngay) || compareDates(ngay, dkh.getColNgayWhere(tenlop)) < 0 || (dkh.getColCaWhere(tenlop).equals("Chiều") && compareDates(ngay, dkh.getColNgayWhere(tenlop)) == 0)) {
+                            if (dkh.check(ca, ngay, tenphong) || compareDates(ngay, dkh.getColNgayWhere(tenlop)) < 0 || (dkh.getColCaWhere(tenlop).equals("Chiều") && compareDates(ngay, dkh.getColNgayWhere(tenlop)) == 0)) {
                                 Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
                             } else {
                                 dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));

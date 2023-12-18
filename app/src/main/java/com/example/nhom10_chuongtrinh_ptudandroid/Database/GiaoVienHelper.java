@@ -104,7 +104,25 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+    public boolean check(String username) {
+        SQLiteDatabase db = getReadableDatabase();
+        String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME_gvh +
+                " WHERE " + COL_USERNAME + " = ? AND " +
+                COL_PASSWORD + " = ?";
 
+        Cursor cursor = db.rawQuery(statement, new String[]{username});
+
+        int result = 0;
+        if (cursor != null && cursor.moveToFirst()) {
+            result = cursor.getInt(0);
+            cursor.close();
+        }
+        db.close();
+        if(result == 0)
+            return false;
+        else
+            return true;
+    }
     public List<GiaoVien> getAll() {
         SQLiteDatabase db = getReadableDatabase();
         List<GiaoVien> list = new ArrayList<>();
@@ -126,8 +144,9 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
         db.execSQL(createStatement);
     }
     public void createTable2(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s TEXT PRIMARY KEY, %s TEXT, %s TEXT)",
-                TABLE_NAME_phh, COL_TEN_PHONG, COL_THIET_BI_HU_HAI, COL_THIET_BI_THIEU);
+        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s, %s, %s))",
+                TABLE_NAME_phh, COL_TEN_PHONG, COL_THIET_BI_HU_HAI, COL_THIET_BI_THIEU, COL_CA, COL_NGAY, COL_MSV,
+                COL_TEN_PHONG, COL_NGAY, COL_CA, COL_MSV);
         db.execSQL(createStatement);
     }
     public void createTable3(SQLiteDatabase db) {
@@ -137,9 +156,9 @@ public class GiaoVienHelper extends SQLiteOpenHelper {
         db.execSQL(createStatement);
     }
     public void createTable4(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s))",
+        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s, %s))",
                 TABLE_NAME_dkh, COL_TEN_LOP_DK, COL_CA, COL_NGAY, COL_TEN_PHONG,
-                COL_CA, COL_NGAY);
+                COL_CA, COL_NGAY, COL_TEN_LOP_DK);
         db.execSQL(createStatement);
     }
     public void createTable5(SQLiteDatabase db) {

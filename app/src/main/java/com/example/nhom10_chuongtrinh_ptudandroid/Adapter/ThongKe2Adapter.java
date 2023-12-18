@@ -12,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.nhom10_chuongtrinh_ptudandroid.R;
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.PhanCong;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ThongKe2Adapter extends RecyclerView.Adapter<ThongKe2Adapter.ViewHolder>{
     Context context;
-    List<PhanCong> phanCongList;
+    ArrayList<List<String>> resultList;
 
-    public ThongKe2Adapter(Context context, List<PhanCong> phanCongList) {
+    public ThongKe2Adapter(Context context, ArrayList<List<String>> resultList) {
         this.context = context;
-        this.phanCongList = phanCongList;
+        this.resultList = resultList;
     }
 
     @NonNull
@@ -32,11 +33,11 @@ public class ThongKe2Adapter extends RecyclerView.Adapter<ThongKe2Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ThongKe2Adapter.ViewHolder holder, int position) {
-        if (phanCongList != null && phanCongList.size() > 0){
-            PhanCong phanCong = phanCongList.get(position);
-            holder.tv_ngaytk2.setText(phanCong.getNgay());
-            holder.tv_thietbihuhaitk2.setText(phanCong.getTen());
-            holder.tv_thietbithieutk2.setText(phanCong.getNote());
+        if (resultList != null && resultList.size() > 0){
+            List<String> task = resultList.get(position);
+            holder.tv_ngaytk2.setText(task.get(0));
+            holder.tv_thietbihuhaitk2.setText(task.get(1));
+            holder.tv_thietbithieutk2.setText(task.get(2));
         } else {
             return;
         }
@@ -44,7 +45,7 @@ public class ThongKe2Adapter extends RecyclerView.Adapter<ThongKe2Adapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return phanCongList.size();
+        return resultList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

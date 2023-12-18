@@ -60,8 +60,8 @@
 36-->E:\BTL-Android\Btl_Android\app\src\main\AndroidManifest.xml:19:13-37
 37        <activity
 37-->E:\BTL-Android\Btl_Android\app\src\main\AndroidManifest.xml:20:9-22:40
-38            android:name="com.example.nhom10_chuongtrinh_ptudandroid.DiemDanhSinhVienKhongTrucNhat"
-38-->E:\BTL-Android\Btl_Android\app\src\main\AndroidManifest.xml:21:13-58
+38            android:name="com.example.nhom10_chuongtrinh_ptudandroid.DiemDanh"
+38-->E:\BTL-Android\Btl_Android\app\src\main\AndroidManifest.xml:21:13-37
 39            android:exported="false" />
 39-->E:\BTL-Android\Btl_Android\app\src\main\AndroidManifest.xml:22:13-37
 40        <activity

@@ -2,23 +2,21 @@ package com.example.nhom10_chuongtrinh_ptudandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.nhom10_chuongtrinh_ptudandroid.Database.GiaoVienHelper;
+import com.example.nhom10_chuongtrinh_ptudandroid.Database.PhanCongHelper;
+import com.example.nhom10_chuongtrinh_ptudandroid.Database.SinhVienHelper;
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.GiaoVien;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +26,8 @@ public class LoginMainActivity extends AppCompatActivity {
     RadioButton rdGv, rdSv;
     Button btnLogin;
     GiaoVienHelper gvh;
+    SinhVienHelper svh;
+    PhanCongHelper pch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +45,21 @@ public class LoginMainActivity extends AppCompatActivity {
                         intent.putExtra("username", txtuser);
                         startActivity(intent);
                     } else {
-                        //Thong bao
+                        Toast.makeText(getApplicationContext(), "Không đúng thông tin đăng nhập", Toast.LENGTH_SHORT).show();
                     }
                 } else if (rdSv.isChecked()){
-                    //Chua code
+                    if(svh.check(txtuser)) {
+                        if (svh != null && pch != null) {
+                            Intent intent = new Intent(LoginMainActivity.this, DiemDanhSinhVienTrucNhatActivity.class);
+                            intent.putExtra("username", txtuser);
+                            intent.putExtra("source", "ActivityLogin");
+                            startActivity(intent);
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Không đúng thông tin đăng nhập", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Chưa chọn vị trí", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -61,14 +72,18 @@ public class LoginMainActivity extends AppCompatActivity {
         rdGv = findViewById(R.id.rdGv);
         rdSv = findViewById(R.id.rdSv);
         gvh = new GiaoVienHelper(getApplicationContext());
+        svh = new SinhVienHelper(getApplicationContext());
+        pch = new PhanCongHelper(getApplicationContext());
     }
     public void fakeData() {
         try {
-            List<GiaoVien> giaoVienList = new ArrayList<>();
-            giaoVienList.add(new GiaoVien("a",""));
-            giaoVienList.add(new GiaoVien("b",""));
-            gvh.addRecord(giaoVienList);
-            gvh.importCsvData(gvh.getWritableDatabase(), getApplicationContext());
+            if (!gvh.check("a")){
+                List<GiaoVien> giaoVienList = new ArrayList<>();
+                giaoVienList.add(new GiaoVien("giaovien1",""));
+                giaoVienList.add(new GiaoVien("giaovien2",""));
+                gvh.addRecord(giaoVienList);
+                gvh.importCsvData(gvh.getWritableDatabase(), getApplicationContext());
+            }
         } catch (Exception e){
             Log.d("announcement", "Đã fake data trước đó");
         }

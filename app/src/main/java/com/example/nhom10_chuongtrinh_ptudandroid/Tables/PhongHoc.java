@@ -1,12 +1,15 @@
 package com.example.nhom10_chuongtrinh_ptudandroid.Tables;
 
 public class PhongHoc {
-    private String tenPhong, thietBiHuHai, thietBiThieu;
+    private String tenPhong, thietBiHuHai, thietBiThieu, ngay, ca, masv;
 
-    public PhongHoc(String tenPhong, String thietBiHuHai, String thietBiThieu) {
+    public PhongHoc(String tenPhong, String thietBiHuHai, String thietBiThieu, String ngay, String ca, String masv) {
         this.tenPhong = tenPhong;
         this.thietBiHuHai = thietBiHuHai;
         this.thietBiThieu = thietBiThieu;
+        this.ngay = ngay;
+        this.ca = ca;
+        this.masv = masv;
     }
 
     public String getTenPhong() {
@@ -31,5 +34,29 @@ public class PhongHoc {
 
     public void setThietBiThieu(String thietBiThieu) {
         this.thietBiThieu = thietBiThieu;
+    }
+
+    public String getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
+    }
+
+    public String getCa() {
+        return ca;
+    }
+
+    public void setCa(String ca) {
+        this.ca = ca;
+    }
+
+    public String getMasv() {
+        return masv;
+    }
+
+    public void setMasv(String masv) {
+        this.masv = masv;
     }
 }

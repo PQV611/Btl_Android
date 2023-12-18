@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật thông tin trực nhật"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:text="Thiết bị hư hại"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/editTBHu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:text="Thiết bị thiếu"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/editTBThieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/btnDiemDanh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Điểm danh"
+        android:layout_gravity="start"/>
+</LinearLayout>

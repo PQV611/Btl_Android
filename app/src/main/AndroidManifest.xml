@@ -18,7 +18,7 @@
             android:name=".DiemDanhSinhVienTrucNhatActivity"
             android:exported="false" />
         <activity
-            android:name=".DiemDanhSinhVienKhongTrucNhat"
+            android:name=".DiemDanh"
             android:exported="false" />
         <activity
             android:name=".BaoCaoThongKe"
