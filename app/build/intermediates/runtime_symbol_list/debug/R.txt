@@ -3041,6 +3041,7 @@ int drawable notification_template_icon_low_bg 0x7f0700dd
 int drawable notification_tile_bg 0x7f0700de
 int drawable notify_panel_notification_icon_bg 0x7f0700df
 int drawable test_level_drawable 0x7f0700e0
+int drawable title_border 0x7f0700e3
 int drawable tooltip_frame_dark 0x7f0700e1
 int drawable tooltip_frame_light 0x7f0700e2
 int id ALT 0x7f080000
@@ -3143,6 +3144,7 @@ int id bounceEnd 0x7f080060
 int id bounceStart 0x7f080061
 int id btnDangKy 0x7f080062
 int id btnDangKyLop 0x7f080063
+int id btnDangXuat 0x7f080238
 int id btnDiemDanh 0x7f080064
 int id btnLogOut 0x7f080065
 int id btnLogin 0x7f080066
@@ -3227,7 +3229,6 @@ int id easeOut 0x7f0800b4
 int id east 0x7f0800b5
 int id edge 0x7f0800b6
 int id editMSV 0x7f0800b7
-int id editNgay 0x7f0800b8
 int id editNote 0x7f0800b9
 int id editTBHu 0x7f0800ba
 int id editTBThieu 0x7f0800bb
@@ -3424,7 +3425,6 @@ int id progress_horizontal 0x7f080179
 int id radio 0x7f08017a
 int id ratio 0x7f08017b
 int id rdChieu 0x7f08017c
-int id rdCo 0x7f08017d
 int id rdG 0x7f08017e
 int id rdGroup 0x7f08017f
 int id rdGv 0x7f080180
@@ -3518,6 +3518,7 @@ int id tag_window_insets_animation_callback 0x7f0801d7
 int id tbphancong 0x7f0801d8
 int id tbthongke1 0x7f0801d9
 int id tbthongke2 0x7f0801da
+int id tbthongtintrucnhat 0x7f080234
 int id text 0x7f0801db
 int id text2 0x7f0801dc
 int id textEnd 0x7f0801dd
@@ -3528,12 +3529,9 @@ int id textTop 0x7f0801e1
 int id textView 0x7f0801e2
 int id textView10 0x7f0801e3
 int id textView11 0x7f0801e4
-int id textView12 0x7f0801e5
 int id textView15 0x7f0801e6
 int id textView16 0x7f0801e7
-int id textView19 0x7f0801e8
 int id textView2 0x7f0801e9
-int id textView20 0x7f0801ea
 int id textView21 0x7f0801eb
 int id textView22 0x7f0801ec
 int id textView3 0x7f0801ed
@@ -3570,6 +3568,7 @@ int id transition_transform 0x7f08020b
 int id triangle 0x7f08020c
 int id tv_caphancong 0x7f08020d
 int id tv_catk1 0x7f08020e
+int id tv_catttn 0x7f080235
 int id tv_lopphancong 0x7f08020f
 int id tv_loptk1 0x7f080210
 int id tv_msvphancong 0x7f080211
@@ -3577,12 +3576,15 @@ int id tv_msvtk1 0x7f080212
 int id tv_ngayphancong 0x7f080213
 int id tv_ngaytk1 0x7f080214
 int id tv_ngaytk2 0x7f080215
+int id tv_ngaytttn 0x7f080236
 int id tv_notephancong 0x7f080216
 int id tv_tenphancong 0x7f080217
+int id tv_tenphongtttn 0x7f080237
 int id tv_tentk1 0x7f080218
 int id tv_thietbihuhaitk2 0x7f080219
 int id tv_thietbithieutk2 0x7f08021a
 int id tv_trucnhattk1 0x7f08021b
+int id tvtenphong 0x7f080239
 int id unchecked 0x7f08021c
 int id uniform 0x7f08021d
 int id unlabeled 0x7f08021e
@@ -3739,9 +3741,10 @@ int layout design_navigation_menu 0x7f0b002a
 int layout design_navigation_menu_item 0x7f0b002b
 int layout design_text_input_end_icon 0x7f0b002c
 int layout design_text_input_start_icon 0x7f0b002d
-int layout diem_danh_sinh_vien_khong_truc_nhat 0x7f0b002e
+int layout diem_danh 0x7f0b0076
 int layout diem_danh_sinh_vien_truc_nhat 0x7f0b002f
 int layout item_layout1 0x7f0b0030
+int layout item_layout_thongtintrucnhat 0x7f0b0074
 int layout item_layouttk1 0x7f0b0031
 int layout item_layouttk2 0x7f0b0032
 int layout login_main_activity 0x7f0b0033

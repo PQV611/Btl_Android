@@ -35,7 +35,7 @@
             android:name="com.example.nhom10_chuongtrinh_ptudandroid.DiemDanhSinhVienTrucNhatActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nhom10_chuongtrinh_ptudandroid.DiemDanhSinhVienKhongTrucNhat"
+            android:name="com.example.nhom10_chuongtrinh_ptudandroid.DiemDanh"
             android:exported="false" />
         <activity
             android:name="com.example.nhom10_chuongtrinh_ptudandroid.BaoCaoThongKe"

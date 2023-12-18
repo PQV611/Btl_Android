@@ -10,13 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9582c933-c7f3-47d6-aa87-1fa57dd65973" name="Changes" comment="Phuong Updated">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/DangKyLopHoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/DangKyLopHoc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/SinhVienHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/SinhVienHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +66,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -95,12 +92,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-viewC:/Users/Phuong/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
     "android-custom-viewC:/Users/Phuong/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.10.0/93873f2a41da69e38213dbe9ed91a0402a903c88/material-1.10.0-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED": "MaterialButton",
     "android-custom-viewC:/Users/Phuong/AppData/Local/Android/Sdk/sources/android-34/android/view/View.java_SELECTED": "View",
     "android-custom-viewC:/Users/Phuong/AppData/Local/Android/Sdk/sources/android-34/android/widget/RadioButton.java_SELECTED": "RadioButton",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "C:/Users/Phuong/Desktop",
+    "last_opened_file_path": "E:/BTL-Android/Btl_Android",
     "project.structure.last.edited": "SDK Location",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -109,6 +107,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\BTL-Android\Btl_Android\app\src\main\res\drawable" />
       <recent name="E:\BTL-Android\Btl_Android\app\src\main\res\raw" />
       <recent name="E:\BTL-Android\Btl_Android\app\src\main\java\com\example\nhom10_chuongtrinh_ptudandroid" />
       <recent name="E:\BTL-Android\Btl_Android\app\src\androidTest\assets" />
@@ -118,6 +117,9 @@
       <recent name="E:\BTL-Android\Btl_Android\app\src\androidTest\assets" />
       <recent name="E:\BTL-Android\Btl_Android\app\sampledata" />
       <recent name="E:\BTL-Android\Btl_Android\app\src\main\res\values" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.nhom10_chuongtrinh_ptudandroid.Adapter" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.nhom10_chuongtrinh_ptudandroid.Adapter" />

@@ -17,6 +17,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.nhom10_chuongtrinh_ptudandroid.Database.DangKyThucHanhHelper;
+import com.example.nhom10_chuongtrinh_ptudandroid.Database.SinhVienHelper;
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.DangKyThucHanh;
 import com.example.nhom10_chuongtrinh_ptudandroid.PhanCongTrucNhat;
 
@@ -32,6 +33,7 @@ public class DangKyLopHoc extends AppCompatActivity {
     private RadioGroup radioGroup;
     private Button btnDK;
     private DangKyThucHanhHelper dkh;
+    private SinhVienHelper svh;
     private String tenphong;
     private List<DangKyThucHanh> dangKyThucHanhList = new ArrayList<>();
     @Override
@@ -56,27 +58,30 @@ public class DangKyLopHoc extends AppCompatActivity {
                     String ca = selectedRadioButton.getText().toString();
                     String ngay = editTime.getText().toString();
                     try {
-                        if (dkh.getColNgayWhere(tenlop) == null){
-                            if (dkh.check(ca, ngay)) {
-                                Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                        if (svh.checkLop(tenlop)) {
+                            if (dkh.getColNgayWhere(tenlop) == null) {
+                                if (dkh.check(ca, ngay, tenphong)) {
+                                    Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
+                                    dkh.addRecord(dangKyThucHanhList);
+                                    Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            } else if (dkh.getColNgayWhere(tenlop) != null) {
+                                if (dkh.check(ca, ngay, tenphong) || compareDates(ngay, dkh.getColNgayWhere(tenlop)) < 0 || (dkh.getColCaWhere(tenlop).equals("Chiều") && compareDates(ngay, dkh.getColNgayWhere(tenlop)) == 0)) {
+                                    Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
+                                    dkh.addRecord(dangKyThucHanhList);
+                                    Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
                             } else {
-                                dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
-                                dkh.addRecord(dangKyThucHanhList);
-                                Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        } else if (dkh.getColNgayWhere(tenlop) != null) {
-                            if (dkh.check(ca, ngay) || compareDates(ngay, dkh.getColNgayWhere(tenlop)) < 0 || (dkh.getColCaWhere(tenlop).equals("Chiều") && compareDates(ngay, dkh.getColNgayWhere(tenlop)) == 0)) {
                                 Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
-                            } else {
-                                dangKyThucHanhList.add(new DangKyThucHanh(tenlop, ca, ngay, tenphong));
-                                dkh.addRecord(dangKyThucHanhList);
-                                Toast.makeText(getApplicationContext(), "Đã đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
-                                finish();
                             }
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Không thể đăng ký lịch thực hành", Toast.LENGTH_SHORT).show();
-                        }
+                        } else
+                            Toast.makeText(getApplicationContext(), "Không tồn tại lớp", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -98,6 +103,7 @@ public class DangKyLopHoc extends AppCompatActivity {
         radioGroup = findViewById(R.id.rdG);
         btnDK = findViewById(R.id.btnDangKy);
         dkh = new DangKyThucHanhHelper(getApplicationContext());
+        svh = new SinhVienHelper(getApplicationContext());
         Intent intent = getIntent();
         tenphong = intent.getStringExtra("tenPhong");
     }

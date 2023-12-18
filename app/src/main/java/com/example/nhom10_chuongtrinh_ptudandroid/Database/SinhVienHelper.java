@@ -65,7 +65,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
         String result = null;
         Cursor cursor = null;
         try {
-            String statement = "SELECT DISTINCT " + COL_LOP + " FROM " + TABLE_NAME + " WHERE " + COL_MSV + " = ?";
+            String statement = "SELECT " + COL_LOP + " FROM " + TABLE_NAME + " WHERE " + COL_MSV + " = ?";
             cursor = db.rawQuery(statement, new String[]{msv});
             while (cursor.moveToNext()) {
                 result = cursor.getString(0);
@@ -82,7 +82,7 @@ public class SinhVienHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         SinhVien sv = null;
         String statement = "SELECT * FROM " + TABLE_NAME +
-                " WHERE " + COL_STT + " == ? AND " + COL_LOP + " = ?";
+                " WHERE " + COL_STT + " = ? AND " + COL_LOP + " = ?";
         Cursor cursor = db.rawQuery(statement, new String[]{String.valueOf(stt), tenlop});
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -134,6 +134,57 @@ public class SinhVienHelper extends SQLiteOpenHelper {
             db.close();
         }
         return list;
+    }
+    public String getColTen(String msv){
+        SQLiteDatabase db = getReadableDatabase();
+        String result = null;
+        Cursor cursor = null;
+        try {
+            String statement = "SELECT " + COL_TEN + " FROM " + TABLE_NAME + " WHERE " + COL_MSV + " = ?";
+            cursor = db.rawQuery(statement, new String[]{msv});
+            while (cursor.moveToNext()) {
+                result = cursor.getString(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return result;
+    }
+    public Boolean check(String msv){
+        SQLiteDatabase db = getReadableDatabase();
+        int result = 0;
+        Cursor cursor = null;
+        try {
+            String statement = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE " + COL_MSV + " = ?";
+            cursor = db.rawQuery(statement, new String[]{msv});
+            if (cursor.moveToNext())
+                result = cursor.getInt(0);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return result != 0;
+    }
+    public boolean checkLop(String tenlop){
+        SQLiteDatabase db = getReadableDatabase();
+        int result = 0;
+        String statement = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE " + COL_LOP + " = ?";
+        Cursor cursor = db.rawQuery(statement, new String[]{tenlop});
+        try {
+            if (cursor.moveToFirst()) {
+                result = cursor.getInt(0);
+                return result != 0;
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        return result != 0;
     }
 }
 

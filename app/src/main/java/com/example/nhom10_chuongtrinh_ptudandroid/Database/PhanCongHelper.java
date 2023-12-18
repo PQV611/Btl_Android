@@ -10,8 +10,12 @@ import android.util.Log;
 
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.PhanCong;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PhanCongHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "BTL.db";
@@ -73,6 +77,25 @@ public class PhanCongHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean getSinhVienTrucNhat(String masv){
+        SQLiteDatabase db = getReadableDatabase();
+        String statement = "SELECT COUNT(*) FROM " + TABLE_NAME +
+                " WHERE DATETIME(" + COL_NGAY + ") >= DATETIME('now') - 1 AND " + COL_MSV + " = ?";
+
+        try {
+            Cursor cursor = db.rawQuery(statement, new String[]{masv});
+
+            if (cursor != null && cursor.moveToFirst()) {
+                int count = cursor.getInt(0);
+                cursor.close();
+                return count != 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
     @SuppressLint("Range")
     public List<PhanCong> getAll() {
         SQLiteDatabase db = getReadableDatabase();
@@ -91,6 +114,27 @@ public class PhanCongHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndex(COL_CA)),
                         cursor.getString(cursor.getColumnIndex(COL_NGAY))
                 ));
+            }
+            cursor.close();
+        }
+        return list;
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<List<String>> getNgayCaOf(String masv){
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<List<String>> list = new ArrayList<>();
+        List<String> temp = new ArrayList<>();
+        String statement = "SELECT " + COL_NGAY + ", " + COL_CA + " FROM " + TABLE_NAME +
+                            " WHERE " + COL_MSV + " = ?";
+        Cursor cursor = db.rawQuery(statement, new String[]{masv});
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                temp.clear();
+                temp.add(cursor.getString(0));
+                temp.add(cursor.getString(1));
+                list.add(temp);
             }
             cursor.close();
         }

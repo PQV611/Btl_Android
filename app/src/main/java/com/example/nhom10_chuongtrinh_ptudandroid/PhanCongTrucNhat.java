@@ -37,7 +37,7 @@ public class PhanCongTrucNhat extends AppCompatActivity {
     RecyclerView tbphancong;
     PhanCongAdapter adapter;
     List<PhanCong> phanCongList = new ArrayList<>();
-    static List<PhanCong> phanCongList1 = new ArrayList<>();
+    List<PhanCong> phanCongList1 = new ArrayList<>();
     PhanCongHelper pch;
     SinhVienHelper svh;
     DangKyThucHanhHelper dkh;
@@ -98,27 +98,28 @@ public class PhanCongTrucNhat extends AppCompatActivity {
                     else
                         listAutoSelect.add(i);
                 }
+
                 List<SinhVien> sinhVienList = new ArrayList<>();
-                for (int stt : listAutoSelect){
+                for (int stt : listAutoSelect)
                     sinhVienList.add(svh.autoSelect(stt, tenlop));
-                }
-                String ca = dkh.getColCaWhere(tenlop);
-                String ngay = dkh.getColNgayWhere(tenlop);
+
+                String ca = dkh.getColCaWhere(tenlop),
+                        ngay = dkh.getColNgayWhere(tenlop);
                 for (SinhVien sinhVien : sinhVienList) {
                     String ten = sinhVien.getTen();
                     String masv = sinhVien.getMsv();
                     newPhanCongList.add(new PhanCong(masv, ten, "Đến ngày trực nhật", tenlop, ca, ngay));
                 }
                 pch.addRecord(newPhanCongList);
-            } else {
+            } else
                 Toast.makeText(this, "Không có lịch thực hành", Toast.LENGTH_SHORT).show();
-            }
         }
         for (PhanCong x : pch.getAll())
-            if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay())))
+            if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay(), x.getTenLopDK())))
                 phanCongList.add(x);
         for (PhanCong x : phanCongList1)
-            phanCongList.add(x);
+            if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay(), x.getTenLopDK())))
+                phanCongList.add(x);
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }

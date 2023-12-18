@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ThongTinPhongHoc extends AppCompatActivity {
     Button btnDangKyLop, btnPhanCong, btnThongKe;
     String tenPhong;
+    TextView tvtenphong;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +23,10 @@ public class ThongTinPhongHoc extends AppCompatActivity {
         btnDangKyLop = findViewById(R.id.btnDangKyLop);
         btnPhanCong = findViewById(R.id.btnPhanCong);
         btnThongKe = findViewById(R.id.btnThongKe);
+        tvtenphong = findViewById(R.id.tvtenphong);
         Intent intent = getIntent();
         tenPhong = intent.getStringExtra("tenPhong");
+        tvtenphong.setText(tenPhong);
     }
     protected class MyButtonEvent implements View.OnClickListener{
         @Override

@@ -7,95 +7,14 @@
     android:stretchColumns="*"
     android:layout_marginTop="215dp">
 
-    <TableRow>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Phòng"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Lớp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Trạng thái"
-            android:textStyle="bold"/>
-    </TableRow>
-
-    <!-- Dòng 2 -->
-    <TableRow>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="2" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Thiết kế đồ họa" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="19/20" />
-    </TableRow>
-
-    <!-- Dòng 3 -->
-    <TableRow>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="3" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Thiết kế web" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Đã đầy" />
-    </TableRow>
-
-    <!-- Thêm các dòng khác nếu cần -->
-    <TableRow>
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="4" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Android" />
-
-        <TextView
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Đã đầy" />
-    </TableRow>
+    <TextView
+        android:id="@+id/tvtenphong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center" />
 
     <TableRow
         android:layout_width="match_parent"

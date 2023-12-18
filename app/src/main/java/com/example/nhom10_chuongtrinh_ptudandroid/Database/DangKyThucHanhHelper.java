@@ -29,9 +29,9 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s))",
+        String createStatement = String.format("CREATE TABLE %s (%s TEXT, %s TEXT, %s TEXT, %s TEXT, PRIMARY KEY (%s, %s, %s))",
                 TABLE_NAME, COL_TEN_LOP_DK, COL_CA, COL_NGAY, COL_TEN_PHONG,
-                COL_CA, COL_NGAY);
+                COL_CA, COL_NGAY, COL_TEN_LOP_DK);
 
         db.execSQL(createStatement);
     }
@@ -108,6 +108,7 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String result = null;
         Cursor cursor = null;
+
         try {
             String statement = "SELECT " + COL_TEN_PHONG + " FROM " + TABLE_NAME +
                     " WHERE " +
@@ -115,15 +116,45 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
                     COL_CA + " = ?";
             cursor = db.rawQuery(statement, new String[]{ngay, ca});
 
-            while (cursor.moveToNext()) {
+            if (cursor.moveToFirst()) {
                 result = cursor.getString(0);
             }
+        } catch (Exception e) {
+            // Handle exceptions if necessary
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
             db.close();
         }
+
+        return result;
+    }
+    public String getColPhong(String ca, String ngay, String tenLopDK) {
+        SQLiteDatabase db = getReadableDatabase();
+        String result = null;
+        Cursor cursor = null;
+
+        try {
+            String statement = "SELECT " + COL_TEN_PHONG + " FROM " + TABLE_NAME +
+                    " WHERE " +
+                    COL_NGAY + " = ? AND " +
+                    COL_CA + " = ? AND " +
+                    COL_TEN_LOP_DK + " = ?";
+            cursor = db.rawQuery(statement, new String[]{ngay, ca, tenLopDK});
+
+            if (cursor.moveToFirst()) {
+                result = cursor.getString(0);
+            }
+        } catch (Exception e) {
+            // Handle exceptions if necessary
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
         return result;
     }
     private String getSingleColumnValue(String columnName) {
@@ -171,15 +202,39 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         }
         return result;
     }
-    public boolean check(String ca, String ngay){
+    public ArrayList<String> getColNgay(String tenphong) {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<String> result = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            String statement = "SELECT DISTINCT " + COL_NGAY +
+                    " FROM " + TABLE_NAME +
+                    " WHERE " + COL_TEN_PHONG + " = ?";
+            cursor = db.rawQuery(statement, new String[]{tenphong});
+
+            while (cursor.moveToNext()) {
+                result.add(cursor.getString(0));
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return result;
+    }
+
+    public boolean check(String ca, String ngay, String tenPhong){
         SQLiteDatabase db = getReadableDatabase();
         int result = 0;
         Cursor cursor = null;
 
         try {
-            String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME + " WHERE " + COL_CA + " = ? AND " + COL_NGAY + " = ?";
+            String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME + " WHERE " + COL_CA + " = ? AND " + COL_NGAY + " = ? AND " + COL_TEN_PHONG + " = ?";
 
-            cursor = db.rawQuery(statement, new String[]{ca, ngay});
+            cursor = db.rawQuery(statement, new String[]{ca, ngay, tenPhong});
             if (cursor.moveToFirst()) {
                 result = cursor.getInt(0);
             }
@@ -197,7 +252,9 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
     public String getColCaWhere(String tenlop) {
         return getSingleColumnValueWhere(tenlop, COL_CA);
     }
-    public String getColNgayWhere(String tenlop) { return getSingleColumnValueWhere(tenlop, COL_NGAY); }
+    public String getColNgayWhere(String tenlop) {
+        return getSingleColumnValueWhere(tenlop, COL_NGAY);
+    }
     public String getColCa() {
         return getSingleColumnValue(COL_CA);
     }

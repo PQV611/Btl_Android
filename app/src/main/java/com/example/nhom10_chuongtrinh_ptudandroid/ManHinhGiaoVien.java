@@ -32,22 +32,22 @@ public class ManHinhGiaoVien extends AppCompatActivity {
             if(v.getId() == R.id.btnP1){
                 Intent intent = new Intent(ManHinhGiaoVien.this, ThongTinPhongHoc.class);
                 intent.putExtra("username", username);
-                intent.putExtra("tenPhong", "Phong1");
+                intent.putExtra("tenPhong", "Phòng 1");
                 startActivity(intent);
             } else if(v.getId() == R.id.btnP2){
                 Intent intent = new Intent(ManHinhGiaoVien.this, ThongTinPhongHoc.class);
                 intent.putExtra("username", username);
-                intent.putExtra("tenPhong", "Phong2");
+                intent.putExtra("tenPhong", "Phòng 2");
                 startActivity(intent);
             } else if(v.getId() == R.id.btnP3){
                 Intent intent = new Intent(ManHinhGiaoVien.this, ThongTinPhongHoc.class);
                 intent.putExtra("username", username);
-                intent.putExtra("tenPhong", "Phong3");
+                intent.putExtra("tenPhong", "Phòng 3");
                 startActivity(intent);
             } else if(v.getId() == R.id.btnP4){
                 Intent intent = new Intent(ManHinhGiaoVien.this, ThongTinPhongHoc.class);
                 intent.putExtra("username", username);
-                intent.putExtra("tenPhong", "Phong4");
+                intent.putExtra("tenPhong", "Phòng 4");
                 startActivity(intent);
             } else if (v.getId() == R.id.btnLogOut){
                 finish();
