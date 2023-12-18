@@ -168,5 +168,23 @@ public class SinhVienHelper extends SQLiteOpenHelper {
         }
         return result != 0;
     }
+    public boolean checkLop(String tenlop){
+        SQLiteDatabase db = getReadableDatabase();
+        int result = 0;
+        String statement = "SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE " + COL_LOP + " = ?";
+        Cursor cursor = db.rawQuery(statement, new String[]{tenlop});
+        try {
+            if (cursor.moveToFirst()) {
+                result = cursor.getInt(0);
+                return result != 0;
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+        return result != 0;
+    }
 }
 
