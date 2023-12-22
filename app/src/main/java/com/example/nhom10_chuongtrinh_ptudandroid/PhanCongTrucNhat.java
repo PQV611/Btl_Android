@@ -31,7 +31,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class PhanCongTrucNhat extends AppCompatActivity {
-    EditText editMSV, editTenSV, editNote, editTenLop;
+    EditText editMSV;
     RadioGroup radioGroup;
     Button btnThem;
     RecyclerView tbphancong;
@@ -61,9 +61,6 @@ public class PhanCongTrucNhat extends AppCompatActivity {
     }
     public void getFormWidget() {
         editMSV = findViewById(R.id.editMSV);
-        editTenSV = findViewById(R.id.editTenSV);
-        editNote = findViewById(R.id.editNote);
-        editTenLop = findViewById(R.id.editTenLop);
         radioGroup = findViewById(R.id.rdG);
         btnThem = findViewById(R.id.btnThem);
         tbphancong = findViewById(R.id.tbphancong);
@@ -114,9 +111,16 @@ public class PhanCongTrucNhat extends AppCompatActivity {
             } else
                 Toast.makeText(this, "Không có lịch thực hành", Toast.LENGTH_SHORT).show();
         }
-        for (PhanCong x : pch.getAll())
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        for (PhanCong x : pch.getAll()) {
+            String ngay = dateFormat.format(currentDate);
+            Log.e("abc", ngay);
             if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay(), x.getTenLopDK())))
                 phanCongList.add(x);
+            else if (pch.getColNote(ngay, x.getMasv()).contains(tenphong))
+                phanCongList.add(x);
+        }
         for (PhanCong x : phanCongList1)
             if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay(), x.getTenLopDK())))
                 phanCongList.add(x);
@@ -127,23 +131,26 @@ public class PhanCongTrucNhat extends AppCompatActivity {
 
     public void ButtonEvent() {
         String msv = editMSV.getText().toString();
-        String ten = editTenSV.getText().toString();
-        String note = editNote.getText().toString();
-        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-        RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
-        String ca = selectedRadioButton.getText().toString();
-        String tenlop = editTenLop.getText().toString();
+        if(svh.check(msv)){
+            int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+            RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
+            String ca = selectedRadioButton.getText().toString();
 
-        Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        if (!msv.isEmpty() && !ten.isEmpty() && !note.isEmpty() && !ca.isEmpty()) {
-            PhanCong phanCong = new PhanCong(msv, ten, note, tenlop, ca, dateFormat.format(currentDate));
-            phanCongList1.add(phanCong);
-            pch.addRecord(phanCongList1);
-            phanCongList.add(phanCong);
-            adapter.notifyDataSetChanged();
+            Date currentDate = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            if (!msv.isEmpty() && !ca.isEmpty()) {
+                String ten = svh.getColTen(msv);
+                String tenlop = svh.getColLop(msv);
+                PhanCong phanCong = new PhanCong(msv, ten, tenphong, tenlop, ca, dateFormat.format(currentDate));
+                phanCongList1.add(phanCong);
+                pch.addRecord(phanCongList1);
+                phanCongList.add(phanCong);
+                adapter.notifyDataSetChanged();
+            } else {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Không tồn tại mã sinh viên", Toast.LENGTH_SHORT).show();
         }
     }
 }

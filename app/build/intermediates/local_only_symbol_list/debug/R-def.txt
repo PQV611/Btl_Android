@@ -22,11 +22,9 @@ id btnPhanCong
 id btnThem
 id btnThongKe
 id editMSV
-id editNote
 id editTBHu
 id editTBThieu
 id editTenLop
-id editTenSV
 id editTime
 id imageView
 id imageView2
@@ -57,8 +55,6 @@ id textView4
 id textView5
 id textView6
 id textView7
-id textView8
-id textView9
 id tv_caphancong
 id tv_catk1
 id tv_catttn

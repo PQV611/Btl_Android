@@ -3,6 +3,7 @@ package com.example.nhom10_chuongtrinh_ptudandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +16,9 @@ import com.example.nhom10_chuongtrinh_ptudandroid.Database.PhanCongHelper;
 import com.example.nhom10_chuongtrinh_ptudandroid.Database.PhongHocHelper;
 import com.example.nhom10_chuongtrinh_ptudandroid.Tables.PhanCong;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BaoCaoThongKe extends AppCompatActivity {
@@ -49,8 +52,14 @@ public class BaoCaoThongKe extends AppCompatActivity {
         dkh = new DangKyThucHanhHelper(getApplicationContext());
         Intent intent = getIntent();
         tenphong = intent.getStringExtra("tenPhong");
-        for (PhanCong x : pch.getAll()){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        for (PhanCong x : pch.getAll()) {
+            String ngay = dateFormat.format(currentDate);
+            Log.e("abc", ngay);
             if (tenphong.equals(dkh.getColPhong(x.getCa(), x.getNgay(), x.getTenLopDK())))
+                phanCongList.add(x);
+            else if (pch.getColNote(ngay, x.getMasv()).contains(tenphong))
                 phanCongList.add(x);
         }
         ArrayList<String> listngay = dkh.getColNgay(tenphong);

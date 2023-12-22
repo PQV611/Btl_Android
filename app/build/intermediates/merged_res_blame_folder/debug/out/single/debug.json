@@ -60,6 +60,10 @@
         "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:/layout_phan_cong_truc_nhat.xml.flat",
+        "source": "com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:/layout/phan_cong_truc_nhat.xml"
+    },
+    {
         "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_diem_danh_sinh_vien_truc_nhat.xml.flat",
         "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\diem_danh_sinh_vien_truc_nhat.xml"
     },
@@ -98,10 +102,6 @@
     {
         "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\layout_diem_danh_sinh_vien_khong_truc_nhat.xml.flat",
         "source": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:\\layout\\diem_danh_sinh_vien_khong_truc_nhat.xml"
-    },
-    {
-        "merged": "com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:/layout_bao_cao_thong_ke.xml.flat",
-        "source": "com.example.nhom10_chuongtrinh_ptudandroid.app-main-33:/layout/bao_cao_thong_ke.xml"
     },
     {
         "merged": "C:\\Users\\Phuong\\.gradle\\daemon\\8.0\\com.example.nhom10_chuongtrinh_ptudandroid.app-merged_res-31:\\drawable_border.xml.flat",
