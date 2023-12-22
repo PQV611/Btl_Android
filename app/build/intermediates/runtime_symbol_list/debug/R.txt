@@ -3229,11 +3229,9 @@ int id easeOut 0x7f0800b4
 int id east 0x7f0800b5
 int id edge 0x7f0800b6
 int id editMSV 0x7f0800b7
-int id editNote 0x7f0800b9
 int id editTBHu 0x7f0800ba
 int id editTBThieu 0x7f0800bb
 int id editTenLop 0x7f0800bc
-int id editTenSV 0x7f0800bd
 int id editTime 0x7f0800be
 int id edit_query 0x7f0800bf
 int id elastic 0x7f0800c0
@@ -3539,8 +3537,6 @@ int id textView4 0x7f0801ee
 int id textView5 0x7f0801ef
 int id textView6 0x7f0801f0
 int id textView7 0x7f0801f1
-int id textView8 0x7f0801f2
-int id textView9 0x7f0801f3
 int id text_input_end_icon 0x7f0801f4
 int id text_input_error_icon 0x7f0801f5
 int id text_input_start_icon 0x7f0801f6

@@ -140,5 +140,33 @@ public class PhanCongHelper extends SQLiteOpenHelper {
         }
         return list;
     }
+
+    public List<String> getColNote(String ngay, String msv) {
+        SQLiteDatabase db = getReadableDatabase();
+        List<String> result = new ArrayList<>(); // Initialize the list
+
+        Cursor cursor = null;
+
+        try {
+            String statement = "SELECT DISTINCT " + COL_NOTE + " FROM " + TABLE_NAME +
+                    " WHERE " + COL_NGAY + " = ? AND " + COL_MSV + " = ?";
+            cursor = db.rawQuery(statement, new String[]{ngay, msv});
+
+            // Use moveToNext instead of moveToFirst in the while loop
+            while (cursor.moveToNext()) {
+                result.add(cursor.getString(0));
+            }
+        } catch (Exception e) {
+            // Handle exceptions if necessary
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return result;
+    }
+
 }
 

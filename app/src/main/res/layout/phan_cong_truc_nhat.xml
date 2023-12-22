@@ -37,48 +37,6 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:text="Tên"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
-
-        <EditText
-            android:id="@+id/editTenSV"
-            android:layout_width="308dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:inputType="text" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:text="Note"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
-
-        <EditText
-            android:id="@+id/editNote"
-            android:layout_width="308dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:inputType="text" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp">
 
@@ -110,27 +68,6 @@
                 android:layout_marginLeft="30dp"
                 android:text="Chiều" />
         </RadioGroup>
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:text="Tên lớp:"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTenLop"
-            android:layout_width="304dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="" />
     </TableRow>
     <TableRow
         android:layout_width="match_parent"
