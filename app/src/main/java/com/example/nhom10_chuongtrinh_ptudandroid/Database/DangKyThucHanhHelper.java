@@ -232,7 +232,10 @@ public class DangKyThucHanhHelper extends SQLiteOpenHelper {
         Cursor cursor = null;
 
         try {
-            String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME + " WHERE " + COL_CA + " = ? AND " + COL_NGAY + " = ? AND " + COL_TEN_PHONG + " = ?";
+            String statement = "SELECT COUNT(*)" + " FROM " + TABLE_NAME
+                    + " WHERE " + COL_CA + " = ? AND "
+                    + COL_NGAY + " = ? AND "
+                    + COL_TEN_PHONG + " = ?";
 
             cursor = db.rawQuery(statement, new String[]{ca, ngay, tenPhong});
             if (cursor.moveToFirst()) {
