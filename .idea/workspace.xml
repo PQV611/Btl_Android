@@ -11,12 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9582c933-c7f3-47d6-aa87-1fa57dd65973" name="Changes" comment="Phuong Updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/BaoCaoThongKe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/BaoCaoThongKe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/PhanCongHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/PhanCongHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/LoginMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/LoginMainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/PhanCongTrucNhat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/phan_cong_truc_nhat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/phan_cong_truc_nhat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/DangKyLopHoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/DangKyLopHoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nhom10_chuongtrinh_ptudandroid/Database/DangKyThucHanhHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

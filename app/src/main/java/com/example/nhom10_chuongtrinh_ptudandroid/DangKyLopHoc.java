@@ -109,18 +109,35 @@ public class DangKyLopHoc extends AppCompatActivity {
     }
 
     private void ChonNgay() {
+        Date currentDate = new Date();
+        java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
         int ngay = calendar.get(Calendar.DATE);
         int thang = calendar.get(Calendar.MONTH);
         int nam = calendar.get(Calendar.YEAR);
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                editTime.setText(simpleDateFormat.format(calendar.getTime()));
+                String selectedDate = simpleDateFormat.format(calendar.getTime());
+                try {
+                    Date selected = simpleDateFormat.parse(selectedDate);
+                    if (selectedDate.equals(dateFormat.format(currentDate)))
+                        editTime.setText(selectedDate);
+                    else if (selected.before(currentDate)) {
+                        editTime.setText("");
+                        Toast.makeText(getApplicationContext(), "Vui lòng chọn ngày hiện tại hoặc trong tương lai", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        editTime.setText(selectedDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }, nam, thang, ngay);
+
         datePickerDialog.show();
     }
 
